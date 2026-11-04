@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      App chạy hoàn toàn offline, chưa có code gửi notification và chưa có
+      BroadcastReceiver nào nghe BOOT_COMPLETED, nên không khai báo permission nào.
+      Khi nào làm tính năng nhắc lịch (Reminder) thì mới thêm lại POST_NOTIFICATIONS.
+    -->
+
+    <!--
+      allowBackup=false: Room chạy ở chế độ WAL, auto-backup/D2D transfer có thể copy
+      file .db khi -wal/-shm chưa checkpoint -> khôi phục ra DB hỏng hoặc mất giao dịch.
+      Muốn bật backup lại thì phải thêm backup rules loại trừ thư mục databases/
+      (hoặc checkpoint trong BackupAgent), chưa làm nên tắt cho an toàn.
+    -->
+    <application
+        android:name=".XeCostApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.XeCost">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.XeCost">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

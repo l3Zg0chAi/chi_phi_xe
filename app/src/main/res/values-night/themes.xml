@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Bản tối của theme nền (window background) để khi máy đang ở chế độ tối
+      thì lúc mở app không loé lên một khung trắng trước khi Compose vẽ xong.
+      Màu thật của giao diện do XeCostTheme trong Compose quyết định.
+    -->
+    <style name="Theme.XeCost" parent="android:Theme.Material.NoActionBar" />
+</resources>
